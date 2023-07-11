@@ -17,7 +17,7 @@ pub fn caesium_compress(input: String, output: String, params: &mut ZendObject) 
 }
 
 #[php_function]
-pub fn caesium_compress_to_size(input: String, output: String, params: &mut ZendObject, desired_output_size: usize) -> bool {
+pub fn caesium_compress_to_size(input: String, output: String, params: &mut ZendObject, max_output_size: usize) -> bool {
     let mut parameters = caesium::initialize_parameters();
     parameters.jpeg.quality = params.get_property("jpeg_quality").unwrap_or(80);
     parameters.png.quality = params.get_property("png_quality").unwrap_or(80);
@@ -29,7 +29,7 @@ pub fn caesium_compress_to_size(input: String, output: String, params: &mut Zend
     parameters.width = params.get_property("width").unwrap_or(0);
     parameters.height = params.get_property("height").unwrap_or(0);
 
-    caesium::compress_to_size(input, output, &mut parameters, desired_output_size).is_ok()
+    caesium::compress_to_size(input, output, &mut parameters, max_output_size).is_ok()
 }
 
 // Required to register the extension with PHP.

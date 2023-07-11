@@ -1,6 +1,6 @@
 [package]
 name = "libcaesium-php"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 
 [lib]
@@ -16,5 +16,5 @@ doc = false
 cc = "1.0"
 
 [dependencies]
-libcaesium = {git = "https://github.com/Lymphatus/libcaesium.git", rev =  "917a912"}
+libcaesium = {git = "https://github.com/Lymphatus/libcaesium.git", tag =  "0.12.0"}
 ext-php-rs = "0.10.0"
